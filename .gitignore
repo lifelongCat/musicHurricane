@@ -1,0 +1,14 @@
+# virtual environment
+.venv
+
+# environment variables
+.env
+
+# pycharm project settings
+.idea
+
+# python cache
+__pycache__
+
+# macOS folder settings
+.DS_Store
