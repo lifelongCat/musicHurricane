@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-uh3xcu1w3%dj9&)vbw*2m$6ej1hrdeo9ei&39j3b3q*8i--$=f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'musicHurricane.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'backends/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -85,10 +86,6 @@ DATABASES = {
         'PASSWORD': getenv('POSTGRES_PASSWORD'),
         'HOST': getenv('POSTGRES_HOST'),
         'PORT': getenv('POSTGRES_PORT'),
-        # 'OPTIONS': {'options': '-c search_path=public,myschema'},
-        # 'TEST': {
-        #     'NAME': 'test_db',
-        # },
     }
 }
 

@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  postgres:
+    image: 'postgres:16.2'
+    env_file: .env
+    ports:
+      - "54320:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      interval: 1s
+      timeout: 1s
+      retries: 60
+    restart: always
+  backend:
+    build: backend
+    env_file: .env
+    ports:
+      - ${DJANGO_PORT}:${DJANGO_PORT}
+    depends_on:
+      postgres:
+        condition: service_healthy
