@@ -1,10 +1,13 @@
 FROM python:3.11
 
 WORKDIR /app
-COPY . .
 
 # install python dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+# copy project files
+COPY . .
 
 # run entrypoint script
 RUN chmod 777 ./entrypoint.sh

@@ -1,5 +1,4 @@
-# create and run migrations
-python manage.py makemigrations
+# run migrations
 python manage.py migrate
 
 # create superuser for admin panel
