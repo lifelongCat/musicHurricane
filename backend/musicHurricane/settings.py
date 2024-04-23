@@ -87,6 +87,7 @@ DATABASES = {
         'PASSWORD': getenv('POSTGRES_PASSWORD'),
         'HOST': getenv('POSTGRES_HOST'),
         'PORT': getenv('POSTGRES_PORT'),
+        'OPTIONS': {'options': '-c search_path=public,musicians'},
     }
 }
 
