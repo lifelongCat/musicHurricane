@@ -45,7 +45,7 @@ class Musician(UUIDMixin):
         verbose_name_plural = 'musicians'
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name} {self.birth_date}'
+        return f'{self.first_name} {self.last_name} {self.birth_date.strftime("%d.%m.%Y")}'
 
 
 class Award(UUIDMixin):
