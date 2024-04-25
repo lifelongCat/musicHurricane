@@ -1,6 +1,7 @@
 from django.db import models
 from uuid import uuid4
 from datetime import date
+from django.utils.translation import gettext_lazy as _
 from django.core.validators import MaxValueValidator
 
 MAX_TEXT_LENGTH = 150
@@ -26,23 +27,23 @@ class UUIDMixin(models.Model):
 
 class Musician(UUIDMixin):
     first_name = models.CharField(
-        verbose_name='first name',
+        verbose_name=_('first name'),
         max_length=MAX_TEXT_LENGTH
     )
     last_name = models.CharField(
-        verbose_name='last name',
+        verbose_name=_('last name'),
         max_length=MAX_TEXT_LENGTH
     )
     birth_date = models.DateField(
-        verbose_name='birth date',
+        verbose_name=_('birth date'),
         validators=(MaxValueValidator(date.today),),
         default=date.today
     )
 
     class Meta:
         db_table = f'"{SCHEMA_NAME}"."musicians"'
-        verbose_name = 'musician'
-        verbose_name_plural = 'musicians'
+        verbose_name = _('musician')
+        verbose_name_plural = _('musicians')
 
     def __str__(self):
         return f'{self.first_name} {self.last_name} {self.birth_date.strftime("%d.%m.%Y")}'
@@ -50,25 +51,25 @@ class Musician(UUIDMixin):
 
 class Award(UUIDMixin):
     title = models.CharField(
-        verbose_name='title',
+        verbose_name=_('title'),
         max_length=MAX_TEXT_LENGTH
     )
     year = models.PositiveIntegerField(
-        verbose_name='year',
+        verbose_name=_('year'),
         default=current_year,
         validators=(MaxValueValidator(current_year),)
     )
     musician = models.ForeignKey(
         Musician,
-        verbose_name='musician',
+        verbose_name=_('musician'),
         on_delete=models.CASCADE
     )
 
     class Meta:
         db_table = f'"{SCHEMA_NAME}"."awards"'
         unique_together = ('title', 'year')
-        verbose_name = 'award'
-        verbose_name_plural = 'awards'
+        verbose_name = _('award')
+        verbose_name_plural = _('awards')
 
     def __str__(self):
         return f'{self.title} {self.year}'
@@ -76,27 +77,27 @@ class Award(UUIDMixin):
 
 class Composition(UUIDMixin):
     title = models.CharField(
-        verbose_name='title',
+        verbose_name=_('title'),
         max_length=MAX_TEXT_LENGTH
     )
     genre = models.CharField(
-        verbose_name='genre',
+        verbose_name=_('genre'),
         max_length=MAX_TEXT_LENGTH
     )
     duration = models.PositiveIntegerField(
-        verbose_name='duration',
+        verbose_name=_('duration'),
         validators=(MaxValueValidator(MAX_DURATION),)
     )
     musicians = models.ManyToManyField(
         Musician,
-        verbose_name='musicians',
+        verbose_name=_('musicians'),
         through='MusicianComposition'
     )
 
     class Meta:
         db_table = f'"{SCHEMA_NAME}"."compositions"'
-        verbose_name = 'composition'
-        verbose_name_plural = 'compositions'
+        verbose_name = _('composition')
+        verbose_name_plural = _('compositions')
 
     def __str__(self):
         return f'{self.title} ({self.genre})'
@@ -105,20 +106,20 @@ class Composition(UUIDMixin):
 class MusicianComposition(models.Model):
     musician = models.ForeignKey(
         Musician,
-        verbose_name='musician',
+        verbose_name=_('musician'),
         on_delete=models.CASCADE
     )
     composition = models.ForeignKey(
         Composition,
-        verbose_name='composition',
+        verbose_name=_('composition'),
         on_delete=models.CASCADE
     )
 
     class Meta:
         db_table = f'"{SCHEMA_NAME}"."musicians_compositions"'
         unique_together = ('musician', 'composition')
-        verbose_name = 'relationship musician-composition'
-        verbose_name_plural = 'relationships musician-composition'
+        verbose_name = _('relationship musician-composition')
+        verbose_name_plural = _('relationships musician-composition')
 
     def __str__(self):
         return f'{self.musician} - {self.composition}'

@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-25 08:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: apps/musicians/admin.py:8 apps/musicians/models.py:71
+msgid "award"
+msgstr "награда"
+
+#: apps/musicians/admin.py:9 apps/musicians/models.py:72
+msgid "awards"
+msgstr "награды"
+
+#: apps/musicians/admin.py:15 apps/musicians/models.py:99
+#: apps/musicians/models.py:114
+msgid "composition"
+msgstr "произведение"
+
+#: apps/musicians/admin.py:16 apps/musicians/models.py:100
+msgid "compositions"
+msgstr "произведения"
+
+#: apps/musicians/admin.py:38
+msgid "search by title or musician"
+msgstr "поиск по названию или музыканту"
+
+#: apps/musicians/admin.py:59
+msgid "search by title"
+msgstr "поиск по названию"
+
+#: apps/musicians/admin.py:83
+msgid "search by first or last name"
+msgstr "поиск по имени или фамилии"
+
+#: apps/musicians/admin.py:106
+msgid "search by musician first name, musician last name or composition title"
+msgstr "поиск по фамилии, имени музыканта или названию произведения"
+
+#: apps/musicians/apps.py:8 apps/musicians/models.py:46
+#: apps/musicians/models.py:93
+msgid "musicians"
+msgstr "музыканты"
+
+#: apps/musicians/models.py:30
+msgid "first name"
+msgstr "имя"
+
+#: apps/musicians/models.py:34
+msgid "last name"
+msgstr "фамилия"
+
+#: apps/musicians/models.py:38
+msgid "birth date"
+msgstr "дата рождения"
+
+#: apps/musicians/models.py:45 apps/musicians/models.py:64
+#: apps/musicians/models.py:109
+msgid "musician"
+msgstr "музыкант"
+
+#: apps/musicians/models.py:54 apps/musicians/models.py:80
+msgid "title"
+msgstr "название"
+
+#: apps/musicians/models.py:58
+msgid "year"
+msgstr "год"
+
+#: apps/musicians/models.py:84
+msgid "genre"
+msgstr "жанр"
+
+#: apps/musicians/models.py:88
+msgid "duration"
+msgstr "длительность"
+
+#: apps/musicians/models.py:121
+msgid "relationship musician-composition"
+msgstr "отношение музыкант-произведение"
+
+#: apps/musicians/models.py:122
+msgid "relationships musician-composition"
+msgstr "отношения музыкант-произведение"
