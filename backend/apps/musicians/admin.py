@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+
 from .models import Award, Composition, Musician, MusicianComposition
 
 
@@ -101,6 +102,8 @@ class MusicianCompositionAdmin(admin.ModelAdmin):
     ordering = ('musician', 'composition')
     sortable_by = ('musician', 'composition')
 
-    list_filter = ('musician__first_name', 'musician__last_name', 'composition__title', 'composition__genre')
+    list_filter = (
+        'musician__first_name', 'musician__last_name', 'composition__title', 'composition__genre',
+    )
     search_fields = ('musician__first_name', 'musician__last_name', 'composition__title')
     search_help_text = _('search by musician first name, musician last name or composition title')

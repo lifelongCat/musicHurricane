@@ -1,0 +1,22 @@
+name: Линтер
+on: [push]
+env:
+  PYTHON_VERSION: 3.11.6
+  FLAKE8_VERSION: 7.0.0
+  WPS_VERSION: 0.19.2
+jobs:
+  flake:
+    name: Flake8
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Установка Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Установка зависимостей
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8==${{ env.FLAKE8_VERSION }} wemake-python-styleguide==${{ env.WPS_VERSION }}
+      - name: Запуск flake8
+        run: flake8 backend

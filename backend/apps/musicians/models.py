@@ -1,8 +1,9 @@
-from django.db import models
-from uuid import uuid4
 from datetime import date
-from django.utils.translation import gettext_lazy as _
+from uuid import uuid4
+
 from django.core.validators import MaxValueValidator
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 MAX_TEXT_LENGTH = 150
 MAX_DURATION = 24*60
@@ -17,7 +18,7 @@ class UUIDMixin(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid4,
-        editable=False
+        editable=False,
     )
 
     class Meta:
@@ -28,16 +29,16 @@ class UUIDMixin(models.Model):
 class Musician(UUIDMixin):
     first_name = models.CharField(
         verbose_name=_('first name'),
-        max_length=MAX_TEXT_LENGTH
+        max_length=MAX_TEXT_LENGTH,
     )
     last_name = models.CharField(
         verbose_name=_('last name'),
-        max_length=MAX_TEXT_LENGTH
+        max_length=MAX_TEXT_LENGTH,
     )
     birth_date = models.DateField(
         verbose_name=_('birth date'),
         validators=(MaxValueValidator(date.today),),
-        default=date.today
+        default=date.today,
     )
 
     class Meta:
@@ -52,17 +53,17 @@ class Musician(UUIDMixin):
 class Award(UUIDMixin):
     title = models.CharField(
         verbose_name=_('title'),
-        max_length=MAX_TEXT_LENGTH
+        max_length=MAX_TEXT_LENGTH,
     )
     year = models.PositiveIntegerField(
         verbose_name=_('year'),
         default=current_year,
-        validators=(MaxValueValidator(current_year),)
+        validators=(MaxValueValidator(current_year),),
     )
     musician = models.ForeignKey(
         Musician,
         verbose_name=_('musician'),
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     class Meta:
@@ -78,20 +79,20 @@ class Award(UUIDMixin):
 class Composition(UUIDMixin):
     title = models.CharField(
         verbose_name=_('title'),
-        max_length=MAX_TEXT_LENGTH
+        max_length=MAX_TEXT_LENGTH,
     )
     genre = models.CharField(
         verbose_name=_('genre'),
-        max_length=MAX_TEXT_LENGTH
+        max_length=MAX_TEXT_LENGTH,
     )
     duration = models.PositiveIntegerField(
         verbose_name=_('duration'),
-        validators=(MaxValueValidator(MAX_DURATION),)
+        validators=(MaxValueValidator(MAX_DURATION),),
     )
     musicians = models.ManyToManyField(
         Musician,
         verbose_name=_('musicians'),
-        through='MusicianComposition'
+        through='MusicianComposition',
     )
 
     class Meta:
@@ -107,12 +108,12 @@ class MusicianComposition(models.Model):
     musician = models.ForeignKey(
         Musician,
         verbose_name=_('musician'),
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
     composition = models.ForeignKey(
         Composition,
         verbose_name=_('composition'),
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     class Meta:

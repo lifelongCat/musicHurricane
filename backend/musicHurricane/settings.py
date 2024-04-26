@@ -10,9 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from pathlib import Path
 from os import getenv
+from pathlib import Path
+from types import MappingProxyType
+
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,12 +31,12 @@ SECRET_KEY = getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ('localhost', '127.0.0.1')
 
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,9 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'apps.musicians.apps.MusiciansConfig',
-]
+)
 
-MIDDLEWARE = [
+MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -53,15 +56,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+)
 
 ROOT_URLCONF = 'musicHurricane.urls'
 
-TEMPLATES = [
+TEMPLATES = (
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'backends/templates']
-        ,
+        'DIRS': [BASE_DIR / 'backends/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +74,7 @@ TEMPLATES = [
             ],
         },
     },
-]
+)
 
 WSGI_APPLICATION = 'musicHurricane.wsgi.application'
 
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'musicHurricane.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+DATABASES = MappingProxyType({
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': getenv('POSTGRES_DB'),
@@ -89,14 +91,14 @@ DATABASES = {
         'HOST': getenv('POSTGRES_HOST'),
         'PORT': getenv('POSTGRES_PORT'),
         'OPTIONS': {'options': '-c search_path=public,musicians'},
-    }
-}
+    },
+})
 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = (
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-]
+)
 
 
 # Internationalization
@@ -117,14 +119,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-LANGUAGES = [
+LANGUAGES = (
     ('en', 'Английский'),
-    ('ru', 'Русский')
-]
+    ('ru', 'Русский'),
+)
 
-LOCALE_PATHS = [
+LOCALE_PATHS = (
     'apps/musicians/locale',
-]
+)
 
 TIME_ZONE = 'UTC'
 
