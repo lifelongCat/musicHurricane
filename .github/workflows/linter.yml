@@ -19,4 +19,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8==${{ env.FLAKE8_VERSION }} wemake-python-styleguide==${{ env.WPS_VERSION }}
       - name: Запуск flake8
-        run: flake8 backend
+        working-directory: ./backend
+        run: flake8 .
