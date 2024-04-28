@@ -35,3 +35,6 @@ erDiagram
 
 > [!WARNING]
 > Перед использованием создайте файл `.env` по примеру `example.env`
+
+> [!WARNING]
+> Если Вам нужна автоматическая локализация - раскомментируйте строку с `LocalMiddleware` в `MIDDLEWARE` в `settings.py`
