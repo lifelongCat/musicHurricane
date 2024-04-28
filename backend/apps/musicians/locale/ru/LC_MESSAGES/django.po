@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-25 08:41+0000\n"
+"POT-Creation-Date: 2024-04-29 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,81 +20,88 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: apps/musicians/admin.py:8 apps/musicians/models.py:71
-msgid "award"
-msgstr "награда"
+#: apps/musicians/admin.py:9
+msgid "relationship musician-award"
+msgstr "отношение музыкант-награда"
 
-#: apps/musicians/admin.py:9 apps/musicians/models.py:72
-msgid "awards"
-msgstr "награды"
+#: apps/musicians/admin.py:10
+msgid "relationships musician-award"
+msgstr "отношения музыкант-награда"
 
-#: apps/musicians/admin.py:15 apps/musicians/models.py:99
-#: apps/musicians/models.py:114
-msgid "composition"
-msgstr "произведение"
-
-#: apps/musicians/admin.py:16 apps/musicians/models.py:100
-msgid "compositions"
-msgstr "произведения"
-
-#: apps/musicians/admin.py:38
-msgid "search by title or musician"
-msgstr "поиск по названию или музыканту"
-
-#: apps/musicians/admin.py:59
-msgid "search by title"
-msgstr "поиск по названию"
-
-#: apps/musicians/admin.py:83
-msgid "search by first or last name"
-msgstr "поиск по имени или фамилии"
-
-#: apps/musicians/admin.py:106
-msgid "search by musician first name, musician last name or composition title"
-msgstr "поиск по фамилии, имени музыканта или названию произведения"
-
-#: apps/musicians/apps.py:8 apps/musicians/models.py:46
-#: apps/musicians/models.py:93
-msgid "musicians"
-msgstr "музыканты"
-
-#: apps/musicians/models.py:30
-msgid "first name"
-msgstr "имя"
-
-#: apps/musicians/models.py:34
-msgid "last name"
-msgstr "фамилия"
-
-#: apps/musicians/models.py:38
-msgid "birth date"
-msgstr "дата рождения"
-
-#: apps/musicians/models.py:45 apps/musicians/models.py:64
-#: apps/musicians/models.py:109
-msgid "musician"
-msgstr "музыкант"
-
-#: apps/musicians/models.py:54 apps/musicians/models.py:80
-msgid "title"
-msgstr "название"
-
-#: apps/musicians/models.py:58
-msgid "year"
-msgstr "год"
-
-#: apps/musicians/models.py:84
-msgid "genre"
-msgstr "жанр"
-
-#: apps/musicians/models.py:88
-msgid "duration"
-msgstr "длительность"
-
-#: apps/musicians/models.py:121
+#: apps/musicians/admin.py:16 apps/musicians/models.py:122
 msgid "relationship musician-composition"
 msgstr "отношение музыкант-произведение"
 
-#: apps/musicians/models.py:122
+#: apps/musicians/admin.py:17 apps/musicians/models.py:123
 msgid "relationships musician-composition"
 msgstr "отношения музыкант-произведение"
+
+#: apps/musicians/admin.py:39
+msgid "search by title or musician"
+msgstr "поиск по названию или музыканту"
+
+#: apps/musicians/admin.py:60
+msgid "search by title"
+msgstr "поиск по названию"
+
+#: apps/musicians/admin.py:84
+msgid "search by first or last name"
+msgstr "поиск по имени или фамилии"
+
+#: apps/musicians/admin.py:109
+msgid "search by musician first name, musician last name or composition title"
+msgstr "поиск по фамилии, имени музыканта или названию произведения"
+
+#: apps/musicians/apps.py:8 apps/musicians/models.py:47
+#: apps/musicians/models.py:94
+msgid "musicians"
+msgstr "музыканты"
+
+#: apps/musicians/models.py:31
+msgid "first name"
+msgstr "имя"
+
+#: apps/musicians/models.py:35
+msgid "last name"
+msgstr "фамилия"
+
+#: apps/musicians/models.py:39
+msgid "birth date"
+msgstr "дата рождения"
+
+#: apps/musicians/models.py:46 apps/musicians/models.py:65
+#: apps/musicians/models.py:110
+msgid "musician"
+msgstr "музыкант"
+
+#: apps/musicians/models.py:55 apps/musicians/models.py:81
+msgid "title"
+msgstr "название"
+
+#: apps/musicians/models.py:59
+msgid "year"
+msgstr "год"
+
+#: apps/musicians/models.py:72
+msgid "award"
+msgstr "награда"
+
+#: apps/musicians/models.py:73
+msgid "awards"
+msgstr "награды"
+
+#: apps/musicians/models.py:85
+msgid "genre"
+msgstr "жанр"
+
+#: apps/musicians/models.py:89
+msgid "duration"
+msgstr "длительность"
+
+#: apps/musicians/models.py:100 apps/musicians/models.py:115
+msgid "composition"
+msgstr "произведение"
+
+#: apps/musicians/models.py:101
+msgid "compositions"
+msgstr "произведения"

@@ -6,15 +6,15 @@ from .models import Award, Composition, Musician, MusicianComposition
 
 class AwardInline(admin.TabularInline):
     model = Award
-    verbose_name = _('award')
-    verbose_name_plural = _('awards')
+    verbose_name = _('relationship musician-award')
+    verbose_name_plural = _('relationships musician-award')
     extra = 1
 
 
 class MusicianCompositionInline(admin.TabularInline):
     model = MusicianComposition
-    verbose_name = _('composition')
-    verbose_name_plural = _('compositions')
+    verbose_name = _('relationship musician-composition')
+    verbose_name_plural = _('relationships musician-composition')
     extra = 1
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-25 08:41+0000\n"
+"POT-Creation-Date: 2024-04-29 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,81 +18,88 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps/musicians/admin.py:8 apps/musicians/models.py:71
-msgid "award"
+#: apps/musicians/admin.py:9
+msgid "relationship musician-award"
 msgstr ""
 
-#: apps/musicians/admin.py:9 apps/musicians/models.py:72
-msgid "awards"
+#: apps/musicians/admin.py:10
+msgid "relationships musician-award"
 msgstr ""
 
-#: apps/musicians/admin.py:15 apps/musicians/models.py:99
-#: apps/musicians/models.py:114
-msgid "composition"
-msgstr ""
-
-#: apps/musicians/admin.py:16 apps/musicians/models.py:100
-msgid "compositions"
-msgstr ""
-
-#: apps/musicians/admin.py:38
-msgid "search by title or musician"
-msgstr ""
-
-#: apps/musicians/admin.py:59
-msgid "search by title"
-msgstr ""
-
-#: apps/musicians/admin.py:83
-msgid "search by first or last name"
-msgstr ""
-
-#: apps/musicians/admin.py:106
-msgid "search by musician first name, musician last name or composition title"
-msgstr ""
-
-#: apps/musicians/apps.py:8 apps/musicians/models.py:46
-#: apps/musicians/models.py:93
-msgid "musicians"
-msgstr ""
-
-#: apps/musicians/models.py:30
-msgid "first name"
-msgstr ""
-
-#: apps/musicians/models.py:34
-msgid "last name"
-msgstr ""
-
-#: apps/musicians/models.py:38
-msgid "birth date"
-msgstr ""
-
-#: apps/musicians/models.py:45 apps/musicians/models.py:64
-#: apps/musicians/models.py:109
-msgid "musician"
-msgstr ""
-
-#: apps/musicians/models.py:54 apps/musicians/models.py:80
-msgid "title"
-msgstr ""
-
-#: apps/musicians/models.py:58
-msgid "year"
-msgstr ""
-
-#: apps/musicians/models.py:84
-msgid "genre"
-msgstr ""
-
-#: apps/musicians/models.py:88
-msgid "duration"
-msgstr ""
-
-#: apps/musicians/models.py:121
+#: apps/musicians/admin.py:16 apps/musicians/models.py:122
 msgid "relationship musician-composition"
 msgstr ""
 
-#: apps/musicians/models.py:122
+#: apps/musicians/admin.py:17 apps/musicians/models.py:123
 msgid "relationships musician-composition"
+msgstr ""
+
+#: apps/musicians/admin.py:39
+msgid "search by title or musician"
+msgstr ""
+
+#: apps/musicians/admin.py:60
+msgid "search by title"
+msgstr ""
+
+#: apps/musicians/admin.py:84
+msgid "search by first or last name"
+msgstr ""
+
+#: apps/musicians/admin.py:109
+msgid "search by musician first name, musician last name or composition title"
+msgstr ""
+
+#: apps/musicians/apps.py:8 apps/musicians/models.py:47
+#: apps/musicians/models.py:94
+msgid "musicians"
+msgstr ""
+
+#: apps/musicians/models.py:31
+msgid "first name"
+msgstr ""
+
+#: apps/musicians/models.py:35
+msgid "last name"
+msgstr ""
+
+#: apps/musicians/models.py:39
+msgid "birth date"
+msgstr ""
+
+#: apps/musicians/models.py:46 apps/musicians/models.py:65
+#: apps/musicians/models.py:110
+msgid "musician"
+msgstr ""
+
+#: apps/musicians/models.py:55 apps/musicians/models.py:81
+msgid "title"
+msgstr ""
+
+#: apps/musicians/models.py:59
+msgid "year"
+msgstr ""
+
+#: apps/musicians/models.py:72
+msgid "award"
+msgstr ""
+
+#: apps/musicians/models.py:73
+msgid "awards"
+msgstr ""
+
+#: apps/musicians/models.py:85
+msgid "genre"
+msgstr ""
+
+#: apps/musicians/models.py:89
+msgid "duration"
+msgstr ""
+
+#: apps/musicians/models.py:100 apps/musicians/models.py:115
+msgid "composition"
+msgstr ""
+
+#: apps/musicians/models.py:101
+msgid "compositions"
 msgstr ""
