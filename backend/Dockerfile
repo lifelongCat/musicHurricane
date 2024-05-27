@@ -1,6 +1,6 @@
 FROM python:3.11
 
-WORKDIR /app
+WORKDIR /backend
 
 # install python dependencies
 COPY requirements.txt .
