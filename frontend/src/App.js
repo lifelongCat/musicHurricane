@@ -1,28 +1,30 @@
 import Player from "./components/Player";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 function App() {
-    const [songs, setSongs] = useState([
-        {
-            'id': '1',
-            'title': 'idk',
-        },
-        {
-            'id': '2',
-            'title': 'idk2',
-        }
-    ])
+    const [songs, setSongs] = useState([])
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
-    return (
-        <div className="App">
-            <Player
-                songs={songs}
-                currentSongIndex={currentSongIndex}
-                setCurrentSongIndex={setCurrentSongIndex}
-            />
-        </div>
-    );
+    async function fetchSongs() {
+        const response = await fetch('http://localhost:8080/api/compositions/');
+        setSongs(await response.json());
+    }
+
+    useEffect(() => {
+        fetchSongs();
+    }, []);
+
+    return !songs.length ?
+        <h1>Загрузка плеера</h1> :
+        (
+            <div className="App">
+                <Player
+                    songs={songs}
+                    currentSongIndex={currentSongIndex}
+                    setCurrentSongIndex={setCurrentSongIndex}
+                />
+            </div>
+        );
 }
 
 export default App;
