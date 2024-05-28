@@ -129,7 +129,7 @@ REST_FRAMEWORK = MappingProxyType({
 
 
 # CORS
-CORS_ORIGIN_WHITELIST = ('http://localhost', 'http://127.0.0.1')
+CORS_ORIGIN_WHITELIST = ('http://localhost:3000',)
 
 
 # JWT Authentication
