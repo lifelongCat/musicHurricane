@@ -6,4 +6,4 @@ from .models import Composition
 class CompositionSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Composition
-        fields = '__all__'
+        fields = ('id', 'title')
