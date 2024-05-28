@@ -1,15 +1,15 @@
 import React from 'react';
 
-function PlayerControls(props) {
+function PlayerControls({isPlaying, setIsPlaying, skipSong}) {
     return (
         <div>
-            <button onClick={() => props.skipSong(false)}>
+            <button onClick={() => skipSong(false)}>
                 Назад
             </button>
-            <button onClick={() => props.setIsPlaying(!props.isPlaying)}>
-                {props.isPlaying ? 'Пауза' : 'Возобновить'}
+            <button onClick={() => setIsPlaying(!isPlaying)}>
+                {isPlaying ? 'Пауза' : 'Возобновить'}
             </button>
-            <button onClick={() => props.skipSong()}>
+            <button onClick={() => skipSong()}>
                 Вперёд
             </button>
         </div>

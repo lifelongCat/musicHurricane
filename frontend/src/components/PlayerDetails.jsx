@@ -1,9 +1,9 @@
 import React from 'react';
 
-function PlayerDetails(props) {
+function PlayerDetails({song}) {
     return (
         <div>
-            <h1>{props.song.title}</h1>
+            <h1>{song.title}</h1>
         </div>
     );
 }

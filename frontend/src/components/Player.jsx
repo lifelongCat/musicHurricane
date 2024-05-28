@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import PlayerControls from "./PlayerControls";
 import PlayerDetails from "./PlayerDetails";
 
-function Player(props) {
+function Player({songs, currentSongIndex, setCurrentSongIndex}) {
     const audioElement = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false)
 
@@ -16,14 +16,14 @@ function Player(props) {
 
     const skipSong = (forwards = true) => {
         if (forwards) {
-            props.setCurrentSongIndex(() => {
-                let index = props.currentSongIndex;
-                return ++index > (props.songs.length - 1) ? 0 : index
+            setCurrentSongIndex(() => {
+                let index = currentSongIndex;
+                return ++index > (songs.length - 1) ? 0 : index
             });
         } else {
-            props.setCurrentSongIndex(() => {
-                let index = props.currentSongIndex;
-                return --index < 0 ? (props.songs.length - 1) : index
+            setCurrentSongIndex(() => {
+                let index = currentSongIndex;
+                return --index < 0 ? (songs.length - 1) : index
             });
         }
     };
@@ -31,11 +31,11 @@ function Player(props) {
     return (
         <div>
             <audio
-                src={`http://localhost:8080/api/download/${props.songs[props.currentSongIndex].id}/`}
+                src={`http://localhost:8080/api/download/${songs[currentSongIndex].id}/`}
                 ref={audioElement}>
             </audio>
             <PlayerDetails
-                song={props.songs[props.currentSongIndex]}
+                song={songs[currentSongIndex]}
             />
             <PlayerControls
                 isPlaying={isPlaying}
