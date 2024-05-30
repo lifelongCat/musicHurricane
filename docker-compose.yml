@@ -9,13 +9,15 @@ services:
       interval: 1s
       timeout: 1s
       retries: 60
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
     restart: always
   minio:
     image: 'minio/minio:RELEASE.2024-05-28T17-19-04Z'
     env_file: .env
     environment:
       - MC_HOST_custom=http://localhost:${MINIO_PORT}
-    command: server --console-address ":9001" /data/
+    command: server --console-address ":9001" /data
     ports:
       - ${MINIO_PORT}:${MINIO_PORT}
       - "9001:9001"
@@ -24,6 +26,8 @@ services:
       interval: 1s
       timeout: 1s
       retries: 60
+    volumes:
+      - minio-data:/data
     restart: always
   backend:
     build: backend
@@ -45,3 +49,7 @@ services:
       backend:
         condition: service_started
     restart: always
+
+volumes:
+  postgres-data:
+  minio-data:
