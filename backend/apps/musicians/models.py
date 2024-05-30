@@ -94,18 +94,18 @@ class Composition(UUIDMixin):
         verbose_name=_('musicians'),
         through='MusicianComposition',
     )
-    file = models.FileField(
-        verbose_name=_('file')
+    audio_file = models.FileField(
+        verbose_name=_('audio file'),
     )
 
     def save(self, *args, **kwargs):
         if not self.id:
-            saved_file = self.file
-            self.file = None
+            saved_file = self.audio_file
+            self.audio_file = None  # noqa: WPS601, shadowed class attribute
             super().save(*args, **kwargs)
-            self.file = saved_file
-        # self.file.name = f'{self.id}.{self.file.name.split(".")[-1]}'
-        self.file.name = f'{self.id}'
+            self.audio_file = saved_file  # noqa: WPS601, shadowed class attribute
+        # self.file.name = f'{self.id}.{self.file.name.split(".")[-1]}'  noqa: E800
+        self.audio_file.name = f'{self.id}'
         super().save(*args, **kwargs)
 
     class Meta:

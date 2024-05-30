@@ -102,25 +102,25 @@ DATABASES = MappingProxyType({
 
 
 # MinIO
-STORAGES = {
+STORAGES = MappingProxyType({
     'default': {
         'BACKEND': 'django_minio_backend.models.MinioBackend',
         'OPTIONS': {
             'bucket_name': 'songs',
             'replace_existing': True,
-        }
+        },
     },
     'staticfiles': {
         'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
     },
-}
+})
 MINIO_ENDPOINT = f'{getenv("MINIO_HOST")}:{getenv("MINIO_PORT")}'
 MINIO_ACCESS_KEY = getenv('MINIO_ROOT_USER')
 MINIO_SECRET_KEY = getenv('MINIO_ROOT_PASSWORD')
 MINIO_USE_HTTPS = False
 MINIO_CONSISTENCY_CHECK_ON_START = False
-MINIO_PRIVATE_BUCKETS = ['']
-MINIO_PUBLIC_BUCKETS = ['songs']
+MINIO_PRIVATE_BUCKETS = ['']  # noqa: WPS407, parameter must be list
+MINIO_PUBLIC_BUCKETS = ['songs']  # noqa: WPS407, parameter must be list
 MINIO_MEDIA_FILES_BUCKET = 'songs'
 MINIO_STATIC_FILES_BUCKET = ''
 

@@ -12,8 +12,8 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='composition',
-            name='file',
-            field=models.FileField(default=None, upload_to='', verbose_name='file'),
+            name='audio_file',
+            field=models.FileField(default=None, upload_to='', verbose_name='audio file'),
             preserve_default=False,
         ),
     ]
