@@ -94,6 +94,19 @@ class Composition(UUIDMixin):
         verbose_name=_('musicians'),
         through='MusicianComposition',
     )
+    file = models.FileField(
+        verbose_name=_('file')
+    )
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            saved_file = self.file
+            self.file = None
+            super().save(*args, **kwargs)
+            self.file = saved_file
+        # self.file.name = f'{self.id}.{self.file.name.split(".")[-1]}'
+        self.file.name = f'{self.id}'
+        super().save(*args, **kwargs)
 
     class Meta:
         db_table = f'"{SCHEMA_NAME}"."compositions"'

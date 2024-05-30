@@ -31,7 +31,7 @@ function Player({songs, currentSongIndex, setCurrentSongIndex}) {
     return (
         <div>
             <audio
-                src={`http://localhost:8080/api/download/${songs[currentSongIndex].id}/`}
+                src={`http://localhost:9000/songs/${songs[currentSongIndex].id}`}
                 ref={audioElement}>
             </audio>
             <PlayerDetails
