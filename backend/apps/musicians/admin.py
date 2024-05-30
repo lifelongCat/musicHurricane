@@ -45,7 +45,7 @@ class CompositionAdmin(admin.ModelAdmin):
     save_as = True
 
     # add and change pages
-    fields = ('id', 'title', 'genre', 'duration', 'file')
+    fields = ('id', 'title', 'genre', 'duration', 'audio_file')
     readonly_fields = ('id',)
 
     # view page
