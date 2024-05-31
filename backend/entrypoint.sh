@@ -5,4 +5,4 @@ python manage.py migrate
 python manage.py createsuperuser --noinput
 
 # run django project
-python manage.py runserver 0.0.0.0:"${DJANGO_PORT}"
+python manage.py runserver "${DJANGO_HOST}:${DJANGO_PORT}"

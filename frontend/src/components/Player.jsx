@@ -31,7 +31,7 @@ function Player({songs, currentSongIndex, setCurrentSongIndex}) {
     return (
         <div>
             <audio
-                src={`http://localhost:9000/songs/${songs[currentSongIndex].id}`}
+                src={`http://localhost:${process.env.REACT_APP_MINIO_PORT}/songs/${songs[currentSongIndex].id}`}
                 ref={audioElement}>
             </audio>
             <PlayerDetails

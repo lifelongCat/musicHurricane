@@ -114,7 +114,7 @@ STORAGES = MappingProxyType({
         'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
     },
 })
-MINIO_ENDPOINT = f'{getenv("MINIO_HOST")}:{getenv("MINIO_PORT")}'
+MINIO_ENDPOINT = f'{getenv("MINIO_HOST")}:{getenv("MINIO_API_PORT")}'
 MINIO_ACCESS_KEY = getenv('MINIO_ROOT_USER')
 MINIO_SECRET_KEY = getenv('MINIO_ROOT_PASSWORD')
 MINIO_USE_HTTPS = False
@@ -154,7 +154,7 @@ REST_FRAMEWORK = MappingProxyType({
 
 
 # CORS
-CORS_ORIGIN_WHITELIST = ('http://localhost:3000',)
+CORS_ORIGIN_WHITELIST = (f'http://localhost:{getenv("REACT_PORT")}',)
 
 
 # JWT Authentication

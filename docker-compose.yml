@@ -3,7 +3,7 @@ services:
     image: 'postgres:16.2'
     env_file: .env
     ports:
-      - "54320:5432"
+      - ${POSTGRES_EXTERNAL_PORT}:${POSTGRES_PORT}
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
       interval: 1s
@@ -16,11 +16,11 @@ services:
     image: 'minio/minio:RELEASE.2024-05-28T17-19-04Z'
     env_file: .env
     environment:
-      - MC_HOST_custom=http://localhost:${MINIO_PORT}
-    command: server --console-address ":9001" /data
+      - MC_HOST_custom=http://localhost:${MINIO_API_PORT}
+    command: server --console-address ":${MINIO_WEB_PORT}" /data
     ports:
-      - ${MINIO_PORT}:${MINIO_PORT}
-      - "9001:9001"
+      - ${MINIO_API_PORT}:${MINIO_API_PORT}
+      - ${MINIO_WEB_PORT}:${MINIO_WEB_PORT}
     healthcheck:
       test: ["CMD", "mc", "ready", "local"]
       interval: 1s
@@ -44,7 +44,7 @@ services:
     build: frontend
     env_file: .env
     ports:
-      - 3000:3000
+      - ${REACT_PORT}:${REACT_PORT}
     depends_on:
       backend:
         condition: service_started

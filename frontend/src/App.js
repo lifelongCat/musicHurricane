@@ -6,7 +6,8 @@ function App() {
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
     async function fetchSongs() {
-        const response = await fetch('http://localhost:8080/api/compositions/');
+        const response =
+            await fetch(`http://localhost:${process.env.REACT_APP_DJANGO_PORT}/api/compositions/`);
         setSongs(await response.json());
     }
 
