@@ -1,14 +1,14 @@
 import Player from "./components/Player";
 import {useState, useEffect} from "react";
+import CompositionService from "./API/CompositionService";
 
 function App() {
     const [songs, setSongs] = useState([])
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
     async function fetchSongs() {
-        const response =
-            await fetch(`http://localhost:${process.env.REACT_APP_DJANGO_PORT}/api/compositions/`);
-        setSongs(await response.json());
+        const response = await CompositionService.getAll();
+        setSongs(response.data);
     }
 
     useEffect(() => {
